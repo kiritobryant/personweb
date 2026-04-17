@@ -1,0 +1,156 @@
+/* v1 style tune: keep original tone, improve polish */
+
+.zyyo-main {
+    max-width: 1240px;
+    padding-bottom: 90px;
+}
+
+.zyyo-right {
+    padding-top: 10px;
+}
+
+header {
+    padding: 12px 8px 4px;
+}
+
+.welcome {
+    line-height: 1.12;
+}
+
+.description {
+    color: var(--item-left-text-color);
+}
+
+.left-div,
+.paper-item,
+.project-card,
+.honor-item,
+.research-item,
+.course-item,
+.about-me {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.14);
+}
+
+html[data-theme="Light"] .left-div,
+html[data-theme="Light"] .paper-item,
+html[data-theme="Light"] .project-card,
+html[data-theme="Light"] .honor-item,
+html[data-theme="Light"] .research-item,
+html[data-theme="Light"] .course-item,
+html[data-theme="Light"] .about-me {
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 24px rgba(12, 22, 45, 0.08);
+}
+
+.title {
+    letter-spacing: 0.02em;
+}
+
+.title::after {
+    width: 72px;
+}
+
+.iconContainer {
+    gap: 6px;
+}
+
+.iconItem,
+.switch {
+    margin-left: 0;
+}
+
+.iconItem {
+    min-width: 50px;
+}
+
+.iconItem:hover {
+    transform: translateY(-4px) scale(1.05);
+}
+
+.papers-container,
+.projects-grid,
+.honors,
+.research-areas,
+.courses {
+    gap: 18px;
+}
+
+.paper-item,
+.project-card,
+.honor-item,
+.research-item,
+.course-item,
+.about-me {
+    border-radius: 14px;
+}
+
+.paper-item,
+.project-card,
+.honor-item,
+.research-item,
+.course-item {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.paper-item:hover,
+.project-card:hover,
+.honor-item:hover,
+.research-item:hover,
+.course-item:hover {
+    transform: translateY(-6px);
+    border-color: rgba(var(--accent-rgb), 0.35);
+}
+
+.profile-avatar {
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.profile-avatar img {
+    object-fit: cover;
+    object-position: center;
+}
+
+.contact-item {
+    min-height: 44px;
+}
+
+.project-link-icon,
+.iconItem,
+.switch,
+.paper-item,
+.project-card {
+    touch-action: manipulation;
+}
+
+@media (max-width: 800px) {
+    .zyyo-right {
+        padding: 8px 2px 40px;
+    }
+
+    header {
+        padding: 8px 0 2px;
+    }
+
+    .title {
+        margin: 26px 0 18px;
+    }
+
+    .papers-container,
+    .projects-grid,
+    .honors,
+    .research-areas,
+    .courses {
+        gap: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}

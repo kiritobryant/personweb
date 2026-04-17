@@ -1,0 +1,250 @@
+/*
+--svgcolor svg图标的颜色
+--main-bg-color主页背景
+--main-text-color文本颜色
+--gradient标题渐变颜色
+
+--purple-text-color描述紫色文本颜色
+--text-bg-color描述紫色文本背景颜色
+--item-bg-color项目背景颜色
+--item-hover-color项目鼠标移入颜色
+--item-left-title-color项目标题颜色
+--item-left-text-color项目描述颜色
+--footer-text-color底部文本颜色
+--left-tag-item左侧标签颜色
+--card-filter卡片模糊的数值
+--back-filter背景模糊的数值
+--back-filter-color全局阴影遮罩
+
+*/
+/*卡片模糊的数值非常吃性能,背景模糊的数值可以模糊也可以不模糊
+
+0为不模糊,数值越大模糊程度越高
+
+这两个任选其一进行模糊
+
+一个有数字另一个建议为0
+
+
+内置4套白天主题修改办法
+
+
+
+每套主题的结构都为html{
+    
+}
+
+只有最下面的会生效,也就是将你要设置的主题剪切到最下面
+*/
+
+:root {
+    --primary: #121212;
+    --primary-rgb: 18, 18, 18;
+    --secondary: #1f1f1f;
+    --secondary-rgb: 31, 31, 31;
+    --accent: #6E56CF;
+    --accent-rgb: 110, 86, 207;
+    --accent-light: #9B8AFB;
+    --accent-light-rgb: 155, 138, 251;
+    --text-primary: #ffffff;
+    --text-primary-rgb: 255, 255, 255;
+    --text-secondary: #a0a0a0;
+    --text-secondary-rgb: 160, 160, 160;
+    --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --border-radius: 8px;
+    --card-padding: 2rem;
+    --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+    
+    --main-bg-color: var(--primary);
+    --main-text-color: var(--text-primary);
+    --gradient: linear-gradient(135deg, var(--accent), var(--accent-light));
+    --purple-text-color: var(--accent-light);
+    --text-bg-color: rgba(110, 86, 207, 0.1);
+    --item-bg-color: var(--secondary);
+    --item-hover-color: rgba(110, 86, 207, 0.1);
+    --item-left-title-color: var(--text-primary);
+    --item-left-text-color: var(--text-secondary);
+    --footer-text-color: var(--text-secondary);
+    --left-tag-item: rgba(110, 86, 207, 0.2);
+    --card-filter: 10px;
+    --back-filter: 5px;
+    --back-filter-color: rgba(18, 18, 18, 0.7);
+    --fill: var(--text-primary);
+    --skill-gradient: linear-gradient(90deg, var(--accent), var(--accent-light));
+    --card-border: rgba(255, 255, 255, 0.1);
+    --card-shadow: var(--shadow);
+}
+
+/* Light theme inspired by Apple/Google */
+html[data-theme="Light"] {
+    --primary: #ffffff;
+    --primary-rgb: 255, 255, 255;
+    --secondary: #f5f5f7;
+    --secondary-rgb: 245, 245, 247;
+    --accent: #0071e3;
+    --accent-rgb: 0, 113, 227;
+    --accent-light: #42a5f5;
+    --accent-light-rgb: 66, 165, 245;
+    --text-primary: #1d1d1f;
+    --text-primary-rgb: 29, 29, 31;
+    --text-secondary: #86868b;
+    --text-secondary-rgb: 134, 134, 139;
+    
+    --main-bg-color: var(--primary);
+    --main-text-color: var(--text-primary);
+    --gradient: linear-gradient(135deg, var(--accent), var(--accent-light));
+    --purple-text-color: var(--accent);
+    --text-bg-color: rgba(0, 113, 227, 0.1);
+    --item-bg-color: var(--secondary);
+    --item-hover-color: rgba(0, 113, 227, 0.05);
+    --item-left-title-color: var(--text-primary);
+    --item-left-text-color: var(--text-secondary);
+    --footer-text-color: var(--text-secondary);
+    --left-tag-item: rgba(0, 113, 227, 0.1);
+    --fill: var(--text-primary);
+    --skill-gradient: linear-gradient(90deg, var(--accent), var(--accent-light));
+}
+
+/* Modern gradient background for both themes */
+body {
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Dark theme background */
+html[data-theme="Dark"] body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 10% 10%, rgba(111, 86, 207, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 90% 90%, rgba(155, 138, 251, 0.1) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(18, 18, 18, 0.95) 0%, rgba(30, 30, 30, 0.95) 100%);
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Light theme background */
+html[data-theme="Light"] body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 15% 15%, rgba(224, 242, 254, 0.8) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(219, 234, 254, 0.8) 0%, transparent 40%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.97) 0%, rgba(249, 250, 251, 0.97) 100%);
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Glass effect for left sidebar */
+.zyyo-left {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(var(--main-bg-color-rgb, 255, 255, 255), 0.7);
+    border-right: 1px solid rgba(var(--text-primary-rgb, 0, 0, 0), 0.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme="Dark"] .zyyo-left {
+    background: rgba(31, 31, 31, 0.7);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Modern left tag styles */
+.left-tag-item {
+    background: var(--left-tag-item);
+    border-radius: 20px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(var(--accent-rgb, 0, 113, 227), 0.2);
+}
+
+.left-tag-item:hover {
+    background: rgba(var(--accent-rgb, 0, 113, 227), 0.2);
+    transform: translateY(-2px);
+}
+
+/* Improved card styles */
+.left-div {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(var(--text-primary-rgb, 0, 0, 0), 0.05);
+    overflow: hidden;
+}
+
+html[data-theme="Dark"] .left-div {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.left-div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Add subtle mesh gradient background */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffffff' fill-opacity='0.05' d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z'%3E%3C/path%3E%3C/svg%3E");
+    z-index: -1;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+html[data-theme="Dark"] .onoffswitch-inner:before {
+    background-color: rgba(111, 86, 207, 0.5);
+}
+
+html[data-theme="Dark"] .onoffswitch-inner:after {
+    background-color: #1f1f1f;
+}
+
+html[data-theme="Light"] .onoffswitch-inner:before {
+    background-color: rgba(0, 113, 227, 0.5);
+}
+
+html[data-theme="Light"] .onoffswitch-inner:after {
+    background-color: #e1e1e1;
+}
+
+/* 为深色主题添加 */
+html[data-theme="Dark"] {
+    --skill-gradient: linear-gradient(90deg, rgb(133, 62, 255), #f76cc6 50%, rgb(255, 255, 255));
+    --card-border: rgba(255, 255, 255, 0.05);
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* 添加页面加载动画 */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+
+
