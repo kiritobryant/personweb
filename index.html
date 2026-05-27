@@ -98,7 +98,14 @@
 			</div>
 		</div>
 			<div class="zyyo-right">
-				<header>
+				<header class="hero-cinematic">
+				<div class="hero-video-wrap" aria-hidden="true">
+					<video class="hero-video" autoplay muted loop playsinline preload="metadata">
+						<source src="./static/video/hero-ai-engineer.mp4" type="video/mp4">
+					</video>
+					<div class="hero-video-overlay"></div>
+					<div class="hero-scanline"></div>
+				</div>
 				<div class="index-logo" style="background-image: url(./static/img/person.jpg);">
 					<img style="position: absolute;top:-15%;left:-10%;width: 120%; aspect-ratio: 1/1;"
 						src="./static/img/logokuang.png">
@@ -143,12 +150,7 @@
 						</svg>
 						<div class="iconTip">Mail</div>
 					</a>
-					<a class="iconItem" onclick="viewResume('./jianli/resume.pdf')" href="javascript:void(0)">
-						<svg t="1705247464964" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4987" >
-							<path d="M832 64H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V96c0-17.7-14.3-32-32-32zm-40 824H232V136h560v752zM492 400h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H492c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8zm0 144h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H492c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8zm0 144h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H492c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8zM340 368a40 40 0 1 0 80 0 40 40 0 1 0-80 0zm0 144a40 40 0 1 0 80 0 40 40 0 1 0-80 0zm0 144a40 40 0 1 0 80 0 40 40 0 1 0-80 0z" p-id="4988"></path>
-						</svg>
-						<div class="iconTip">简历</div>
-					</a>
+
 					<a class="iconItem" onclick="pop('./static/img/wxzsm.jpg')" href="javascript:void(0)">
 						<svg t="1712319361023" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1861" ><path d="M824.8 613.2c-16-51.4-34.4-94.6-62.7-165.3C766.5 262.2 689.3 112 511.5 112 331.7 112 256.2 265.2 261 447.9c-28.4 70.8-46.7 113.7-62.7 165.3-34 109.5-23 154.8-14.6 155.8 18 2.2 70.1-82.4 70.1-82.4 0 49 25.2 112.9 79.8 159-26.4 8.1-85.7 29.9-71.6 53.8 11.4 19.3 196.2 12.3 249.5 6.3 53.3 6 238.1 13 249.5-6.3 14.1-23.8-45.3-45.7-71.6-53.8 54.6-46.2 79.8-110.1 79.8-159 0 0 52.1 84.6 70.1 82.4 8.5-1.1 19.5-46.4-14.5-155.8z" p-id="1862"></path></svg>
 						<div class="iconTip">微信</div>
@@ -355,13 +357,6 @@
 		</div>
 	</div>
 
-    <!-- 简历查看器 -->
-    <div id="resume-viewer" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000;">
-        <div style="position:relative; width:100%; height:100%;">
-            <button onclick="closeResume()" style="position:absolute; top:20px; right:20px; background:white; border:none; border-radius:50%; width:40px; height:40px; font-size:20px; cursor:pointer; z-index:1001;">×</button>
-            <iframe id="resume-frame" style="width:100%; height:100%; border:none;"></iframe>
-        </div>
-    </div>
     <div id="project-modal" class="project-modal">
         <div class="modal-card">
             <button class="modal-close" aria-label="关闭">×</button>
@@ -410,20 +405,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-
-<!-- 添加简历查看功能 -->
-<script>
-function viewResume(pdfPath) {
-    document.getElementById('resume-frame').src = pdfPath;
-    document.getElementById('resume-viewer').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
-
-function closeResume() {
-    document.getElementById('resume-viewer').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
-</script>
 
 <!-- 滚动渐入动画逻辑 -->
 <script>
