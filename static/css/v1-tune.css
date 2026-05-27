@@ -147,7 +147,7 @@ html[data-theme="Light"] .about-me {
 }
 
 /* Light premium polish on top of the original version */
-:root {
+::root {
     --accent-rgb: 124, 92, 255;
 }
 
@@ -473,5 +473,394 @@ html[data-theme="Light"] .experience-card {
     *::after {
         animation: none !important;
         transition: none !important;
+    }
+}
+
+/* ============================================
+   NEW: donghao.ltd inspired premium upgrades
+   ============================================ */
+
+/* --- Hero Motto (typewriter effect) --- */
+.hero-motto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-top: 28px;
+    min-height: 36px;
+}
+
+.motto-line {
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(124, 92, 255, 0.6), transparent);
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+.motto-text {
+    font: 400 15px/1.6 "Inter", -apple-system, sans-serif;
+    color: rgba(226, 232, 255, 0.7);
+    letter-spacing: 0.02em;
+}
+
+html[data-theme="Light"] .motto-text {
+    color: rgba(60, 60, 67, 0.6);
+}
+
+.motto-cursor {
+    font-weight: 200;
+    color: rgba(124, 92, 255, 0.8);
+    animation: blink 1s step-end infinite;
+    margin-left: 1px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* --- Scroll Hint --- */
+.scroll-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-top: 32px;
+    opacity: 0;
+    animation: fadeInUp 0.8s 2.2s ease forwards;
+}
+
+.scroll-arrow {
+    font-size: 18px;
+    color: rgba(124, 92, 255, 0.5);
+    animation: bounceDown 2s infinite ease-in-out;
+}
+
+html[data-theme="Light"] .scroll-arrow {
+    color: rgba(0, 113, 227, 0.4);
+}
+
+.scroll-label {
+    font: 500 11px/1 "Inter", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(226, 232, 255, 0.35);
+}
+
+html[data-theme="Light"] .scroll-label {
+    color: rgba(60, 60, 67, 0.3);
+}
+
+@keyframes bounceDown {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(6px); }
+    60% { transform: translateY(3px); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.scroll-hint.hidden {
+    opacity: 0 !important;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+/* --- Philosophy Section --- */
+.philosophy-section {
+    text-align: center;
+    padding: 20px 10px 10px;
+    margin-bottom: 8px;
+}
+
+.philosophy-divider {
+    width: 48px;
+    height: 2px;
+    margin: 0 auto 28px;
+    background: linear-gradient(90deg, transparent, rgba(124, 92, 255, 0.5), rgba(255, 184, 107, 0.4), transparent);
+    border-radius: 2px;
+}
+
+html[data-theme="Light"] .philosophy-divider {
+    background: linear-gradient(90deg, transparent, rgba(0, 113, 227, 0.4), rgba(255, 149, 0, 0.3), transparent);
+}
+
+.philosophy-quote {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font: 300 20px/1.7 "Inter", -apple-system, sans-serif;
+    color: rgba(226, 232, 255, 0.65);
+    letter-spacing: 0.01em;
+    position: relative;
+}
+
+html[data-theme="Light"] .philosophy-quote {
+    color: rgba(60, 60, 67, 0.55);
+}
+
+.quote-mark {
+    font-size: 32px;
+    font-weight: 700;
+    color: rgba(124, 92, 255, 0.3);
+    vertical-align: -4px;
+    line-height: 1;
+}
+
+html[data-theme="Light"] .quote-mark {
+    color: rgba(0, 113, 227, 0.25);
+}
+
+.quote-mark.closing {
+    vertical-align: 8px;
+}
+
+.philosophy-attr {
+    margin: 12px 0 0;
+    font: 500 12px/1 "Inter", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(255, 184, 107, 0.55);
+}
+
+html[data-theme="Light"] .philosophy-attr {
+    color: rgba(255, 149, 0, 0.5);
+}
+
+/* --- Enhanced Scroll Fade-In --- */
+.scroll-fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger children inside containers */
+.papers-container .paper-item,
+.projects-grid .project-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+}
+
+.papers-container .paper-item.is-visible,
+.projects-grid .project-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Section Title Enhancements --- */
+.title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title .icon {
+    opacity: 0.6;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.title:hover .icon {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+.title::after {
+    height: 2px;
+    background: linear-gradient(90deg, rgba(124, 92, 255, 0.4), rgba(255, 184, 107, 0.25), transparent);
+    border-radius: 2px;
+}
+
+html[data-theme="Light"] .title::after {
+    background: linear-gradient(90deg, rgba(0, 113, 227, 0.3), rgba(255, 149, 0, 0.2), transparent);
+}
+
+/* --- Warm Accent Glow on Cards --- */
+.paper-item:hover,
+.project-card:hover {
+    box-shadow: 0 12px 36px rgba(124, 92, 255, 0.12),
+                0 4px 16px rgba(255, 184, 107, 0.06);
+}
+
+html[data-theme="Light"] .paper-item:hover,
+html[data-theme="Light"] .project-card:hover {
+    box-shadow: 0 12px 36px rgba(0, 113, 227, 0.1),
+                0 4px 16px rgba(255, 149, 0, 0.05);
+}
+
+/* --- Paper Card Enhancement --- */
+.paper-item {
+    border-radius: 16px;
+}
+
+.paper-conference .paper-status {
+    color: #7ee8a8;
+    font-weight: 700;
+}
+
+html[data-theme="Light"] .paper-conference .paper-status {
+    color: #1b8a4a;
+}
+
+/* --- About Section Enhancement --- */
+.about-me {
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-me::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(124, 92, 255, 0.5), rgba(255, 184, 107, 0.4), rgba(32, 211, 238, 0.3));
+}
+
+html[data-theme="Light"] .about-me::before {
+    background: linear-gradient(90deg, rgba(0, 113, 227, 0.4), rgba(255, 149, 0, 0.3), rgba(32, 211, 238, 0.2));
+}
+
+/* --- Footer Enhancement --- */
+footer {
+    font: 400 12px/1 "Inter", sans-serif;
+    letter-spacing: 0.03em;
+}
+
+footer a {
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: rgba(124, 92, 255, 0.8);
+}
+
+html[data-theme="Light"] footer a:hover {
+    color: rgba(0, 113, 227, 0.8);
+}
+
+/* --- Loading Screen Enhancement --- */
+#zyyo-loading {
+    background: rgba(18, 18, 18, 0.96);
+    backdrop-filter: blur(20px);
+    transition: opacity 0.6s ease;
+}
+
+html[data-theme="Light"] #zyyo-loading {
+    background: rgba(255, 255, 255, 0.96);
+}
+
+#zyyo-loading.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#zyyo-loading-center {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(124, 92, 255, 0.15);
+    border-top-color: rgba(124, 92, 255, 0.8);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+html[data-theme="Light"] #zyyo-loading-center {
+    border: 2px solid rgba(0, 113, 227, 0.15);
+    border-top-color: rgba(0, 113, 227, 0.8);
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* --- Sidebar Warm Accent --- */
+.profile-name {
+    background: linear-gradient(135deg, #e2e8ff, #ffd7a8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+html[data-theme="Light"] .profile-name {
+    background: linear-gradient(135deg, #1d1d1f, #0071e3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.profile-title {
+    color: rgba(255, 184, 107, 0.75);
+}
+
+html[data-theme="Light"] .profile-title {
+    color: rgba(255, 149, 0, 0.7);
+}
+
+/* --- Skill Tag Warm Accent --- */
+.skill-tag {
+    transition: all 0.25s ease;
+}
+
+.skill-tag:hover {
+    background: rgba(124, 92, 255, 0.2);
+    border-color: rgba(124, 92, 255, 0.35);
+    transform: translateY(-2px);
+}
+
+html[data-theme="Light"] .skill-tag:hover {
+    background: rgba(0, 113, 227, 0.12);
+    border-color: rgba(0, 113, 227, 0.25);
+}
+
+/* --- Timeline Marker Glow --- */
+.timeline-marker {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(124, 92, 255, 0.7), rgba(255, 184, 107, 0.6));
+    box-shadow: 0 0 12px rgba(124, 92, 255, 0.3);
+}
+
+html[data-theme="Light"] .timeline-marker {
+    background: linear-gradient(135deg, rgba(0, 113, 227, 0.7), rgba(255, 149, 0, 0.6));
+    box-shadow: 0 0 12px rgba(0, 113, 227, 0.2);
+}
+
+/* --- Mobile adjustments for new elements --- */
+@media (max-width: 800px) {
+    .philosophy-quote {
+        font-size: 16px;
+    }
+
+    .quote-mark {
+        font-size: 24px;
+    }
+
+    .hero-motto {
+        margin-top: 20px;
+    }
+
+    .motto-text {
+        font-size: 13px;
+    }
+
+    .scroll-hint {
+        margin-top: 22px;
     }
 }
