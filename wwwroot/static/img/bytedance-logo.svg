@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" role="img" aria-label="ByteDance">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#25f4ee"/>
+      <stop offset=".52" stop-color="#7c5cff"/>
+      <stop offset="1" stop-color="#fe2c55"/>
+    </linearGradient>
+  </defs>
+  <rect width="420" height="120" rx="28" fill="rgba(255,255,255,0.04)"/>
+  <path d="M54 31h34c14 0 24 9 24 22 0 9-5 16-13 20 9 3 15 10 15 20H82c0-9-6-14-16-14H54V31Z" fill="url(#g)"/>
+  <rect x="54" y="49" width="28" height="12" rx="6" fill="#fff" opacity=".9"/>
+  <rect x="54" y="78" width="32" height="12" rx="6" fill="#fff" opacity=".9"/>
+  <text x="132" y="68" fill="#eef2ff" font-family="Inter,Arial,sans-serif" font-size="38" font-weight="800" letter-spacing="-.8">ByteDance</text>
+</svg>

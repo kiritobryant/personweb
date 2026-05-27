@@ -146,6 +146,327 @@ html[data-theme="Light"] .about-me {
     }
 }
 
+/* Light premium polish on top of the original version */
+:root {
+    --accent-rgb: 124, 92, 255;
+}
+
+.zyyo-filter {
+    backdrop-filter: blur(1px);
+}
+
+.left-div,
+.paper-item,
+.project-card,
+.honor-item,
+.research-item,
+.about-me,
+.experience-card {
+    background: rgba(255, 255, 255, 0.045);
+    backdrop-filter: blur(16px) saturate(132%);
+}
+
+html[data-theme="Light"] .left-div,
+html[data-theme="Light"] .paper-item,
+html[data-theme="Light"] .project-card,
+html[data-theme="Light"] .honor-item,
+html[data-theme="Light"] .research-item,
+html[data-theme="Light"] .about-me,
+html[data-theme="Light"] .experience-card {
+    background: rgba(255, 255, 255, 0.72);
+}
+
+.index-logo,
+.profile-avatar {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 0 0 1px rgba(var(--accent-rgb), 0.16), 0 18px 46px rgba(0, 0, 0, 0.22);
+}
+
+.welcome {
+    letter-spacing: -0.03em;
+}
+
+.description {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.paper-item {
+    overflow: hidden;
+    position: relative;
+}
+
+.paper-item::before,
+.project-card::before,
+.experience-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(124, 92, 255, 0.12), transparent 34%, rgba(32, 211, 238, 0.08));
+    opacity: 0;
+    transition: opacity 0.28s ease;
+    pointer-events: none;
+}
+
+.paper-item:hover::before,
+.project-card:hover::before,
+.experience-card:hover::before {
+    opacity: 1;
+}
+
+.paper-image {
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.paper-image img {
+    transition: transform 0.32s ease;
+}
+
+.paper-item:hover .paper-image img {
+    transform: scale(1.035);
+}
+
+.paper-info h2 {
+    letter-spacing: -0.02em;
+}
+
+.experience-showcase {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: 18px;
+    margin-bottom: 8px;
+}
+
+.experience-card {
+    position: relative;
+    overflow: hidden;
+    padding: 22px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.14);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(var(--accent-rgb), 0.35);
+}
+
+.experience-card.primary {
+    border-color: rgba(79, 140, 255, 0.22);
+}
+
+.experience-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+}
+
+.experience-head h3 {
+    margin: 0 0 6px;
+    font-size: 20px;
+    line-height: 1.25;
+}
+
+.experience-head p,
+.experience-card li {
+    color: var(--item-left-text-color);
+}
+
+.experience-head p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.experience-card ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.experience-card li {
+    margin: 7px 0;
+    line-height: 1.65;
+    font-size: 14px;
+}
+
+.experience-badge {
+    flex: none;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font: 700 12px/1 "Inter", sans-serif;
+    color: #bfffe3;
+    background: rgba(53, 212, 154, 0.14);
+    border: 1px solid rgba(53, 212, 154, 0.24);
+}
+
+.experience-badge.muted {
+    color: #ffd7a8;
+    background: rgba(255, 184, 107, 0.13);
+    border-color: rgba(255, 184, 107, 0.24);
+}
+
+.company-logo-block {
+    flex: none;
+    display: grid;
+    justify-items: end;
+    gap: 8px;
+    min-width: 148px;
+}
+
+.company-logo-block img {
+    width: 148px;
+    max-width: 100%;
+    display: block;
+    border-radius: 16px;
+    filter: drop-shadow(0 14px 30px rgba(32, 211, 238, 0.14));
+    opacity: 0.96;
+}
+
+.company-logo-block.small img {
+    width: 138px;
+    filter: drop-shadow(0 14px 30px rgba(254, 44, 85, 0.12));
+}
+
+.company-logo-block .experience-badge {
+    width: fit-content;
+}
+
+/* Refined sidebar and senior algorithm profile polish */
+.refined-sidebar .section-title {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(226, 232, 255, 0.92);
+}
+
+.stack-list {
+    display: grid;
+    gap: 9px;
+    margin: 12px 0 14px;
+}
+
+.stack-row {
+    display: grid;
+    gap: 4px;
+    padding: 10px 11px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.stack-row span {
+    color: var(--item-left-text-color);
+    font: 700 11px/1 "Inter", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.stack-row b {
+    color: var(--font-color);
+    font: 700 13px/1.35 "Inter", sans-serif;
+}
+
+.compact-tags {
+    gap: 7px;
+}
+
+.compact-tags .skill-tag {
+    font-size: 12px;
+    padding: 6px 9px;
+}
+
+.premium-timeline .timeline-title {
+    font-family: "Inter", sans-serif;
+    letter-spacing: -0.01em;
+}
+
+.premium-timeline .timeline-subtitle {
+    line-height: 1.45;
+}
+
+.paper-info h2 {
+    font-family: "Inter", sans-serif;
+    font-weight: 760;
+}
+
+.paper-authors {
+    font-family: "Inter", sans-serif;
+    color: rgba(196, 206, 232, 0.82) !important;
+}
+
+.paper-conference {
+    font-family: "Inter", sans-serif;
+    letter-spacing: 0.02em;
+}
+
+.paper-abstract {
+    font-size: 14px;
+    line-height: 1.72;
+}
+
+.experience-card.primary {
+    background: linear-gradient(135deg, rgba(32, 83, 214, 0.18), rgba(124, 92, 255, 0.13)), rgba(255, 255, 255, 0.045);
+}
+
+.experience-kicker {
+    display: inline-flex;
+    margin-bottom: 8px;
+    color: #9ee7ff;
+    font: 800 11px/1 "Inter", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+}
+
+.experience-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 4px 0 16px;
+}
+
+.experience-metrics span {
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: #d9d2ff;
+    background: rgba(124, 92, 255, 0.13);
+    border: 1px solid rgba(124, 92, 255, 0.22);
+    font: 700 12px/1 "Inter", sans-serif;
+}
+
+.recognition-card {
+    min-height: 100%;
+}
+
+.compact-projects .project-card {
+    max-width: 100%;
+}
+
+.compact-project .project-description {
+    max-width: 780px;
+    line-height: 1.7;
+}
+
+.compact-project .project-actions {
+    margin-top: 18px;
+}
+
+@media (max-width: 900px) {
+    .experience-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-head {
+        flex-direction: column;
+    }
+
+    .company-logo-block {
+        justify-items: start;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
