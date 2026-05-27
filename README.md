@@ -43,7 +43,6 @@ python3 -m http.server 8080
 │   ├── img/                # Images & logos
 │   ├── fonts/              # Custom fonts
 │   └── svg/                # SVG assets
-└── skill-growth.html       # Skill growth chart page
 ```
 
 ## License
